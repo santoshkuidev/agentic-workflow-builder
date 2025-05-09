@@ -1,0 +1,289 @@
+/* Thor: Ragnarok inspired styles */
+
+/* Cosmic background with subtle animation */
+.react-flow-canvas {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add cosmic stars effect */
+.react-flow-canvas::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+  background-position: 0 0, 40px 60px, 130px 270px;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+/* Glowing edges */
+.react-flow__edge-path {
+  stroke: #00c3ff;
+  filter: drop-shadow(0 0 5px rgba(0, 195, 255, 0.5));
+  transition: all 0.3s ease;
+}
+
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke-width: 3;
+  filter: drop-shadow(0 0 8px rgba(0, 195, 255, 0.8));
+}
+
+/* Edge types */
+.react-flow__edge-path[data-type="input-to-task"] {
+  stroke: #4caf50;
+  filter: drop-shadow(0 0 5px rgba(76, 175, 80, 0.5));
+}
+
+.react-flow__edge-path[data-type="task-to-tool"] {
+  stroke: #00c3ff;
+  filter: drop-shadow(0 0 5px rgba(0, 195, 255, 0.5));
+}
+
+.react-flow__edge-path[data-type="tool-to-router"] {
+  stroke: #9c27b0;
+  filter: drop-shadow(0 0 5px rgba(156, 39, 176, 0.5));
+}
+
+.react-flow__edge-path[data-type="router-to-output"] {
+  stroke: #ff5722;
+  filter: drop-shadow(0 0 5px rgba(255, 87, 34, 0.5));
+}
+
+/* Node glow effects */
+.react-flow__node {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  transition: filter 0.3s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  user-select: none;
+}
+
+.react-flow__node:not(.dragging):hover {
+  filter: drop-shadow(0 0 10px rgba(0, 195, 255, 0.5));
+}
+
+/* Disable transitions during drag */
+.react-flow__node.dragging,
+.react-flow__node.dragging *,
+body.node-dragging .react-flow__node {
+  transition: none !important;
+  animation: none !important;
+  pointer-events: none !important;
+  cursor: grabbing !important;
+}
+
+.react-flow__node.selected {
+  filter: drop-shadow(0 0 15px rgba(0, 195, 255, 0.8));
+}
+
+/* Node type-specific styles */
+.react-flow__node-input {
+  filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.3));
+}
+
+.react-flow__node-task {
+  filter: drop-shadow(0 0 8px rgba(0, 195, 255, 0.3));
+}
+
+.react-flow__node-tool {
+  filter: drop-shadow(0 0 8px rgba(156, 39, 176, 0.3));
+}
+
+.react-flow__node-router {
+  filter: drop-shadow(0 0 8px rgba(255, 87, 34, 0.3));
+}
+
+.react-flow__node-output {
+  filter: drop-shadow(0 0 8px rgba(255, 235, 59, 0.3));
+}
+
+/* Connection handles */
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid #00c3ff;
+  transition: all 0.3s ease;
+}
+
+.react-flow__handle:hover {
+  background-color: #00c3ff;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(0, 195, 255, 0.8);
+}
+
+.react-flow__handle-top {
+  top: -6px;
+}
+
+.react-flow__handle-bottom {
+  bottom: -6px;
+}
+
+.react-flow__handle-left {
+  left: -6px;
+}
+
+.react-flow__handle-right {
+  right: -6px;
+}
+
+/* Connection line */
+.react-flow__connection-path {
+  stroke: #00c3ff;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 5px rgba(0, 195, 255, 0.5));
+}
+
+/* Controls and minimap */
+.react-flow__controls {
+  box-shadow: 0 0 15px rgba(0, 195, 255, 0.3);
+  border: 1px solid rgba(0, 195, 255, 0.2);
+  padding: 4px !important;
+  gap: 4px !important;
+  background: rgba(30, 30, 30, 0.8) !important;
+}
+
+.react-flow__controls-button {
+  border: none !important;
+  transition: all 0.3s ease;
+  width: 24px !important;
+  height: 24px !important;
+  background: rgba(0, 195, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+  border-radius: 4px !important;
+  margin: 2px !important;
+}
+
+.react-flow__controls-button:hover {
+  background-color: rgba(0, 195, 255, 0.3) !important;
+  color: #00c3ff !important;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+}
+
+.react-flow__minimap {
+  border: 1px solid rgba(0, 195, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 195, 255, 0.3);
+}
+
+/* Toolbar panel */
+.react-flow__panel.react-flow__panel-top-right {
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid rgba(0, 195, 255, 0.2);
+  box-shadow: 0 0 15px rgba(0, 195, 255, 0.3);
+}
+
+/* Sidebar */
+.sidebar {
+  background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+  border-right: 1px solid rgba(0, 195, 255, 0.2);
+  box-shadow: 5px 0 15px rgba(0, 195, 255, 0.1);
+}
+
+.sidebar-header {
+  background: linear-gradient(90deg, #00c3ff 0%, #9c27b0 100%);
+}
+
+/* Dialog animations */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 195, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+  }
+}
+
+.MuiDialog-paper {
+  animation: glow 3s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00c3ff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64f5ff;
+}
+
+/* Bifrost rainbow effect for selected paths */
+.bifrost-path {
+  stroke-dasharray: 10;
+  animation: dash 1s linear infinite;
+  stroke: linear-gradient(
+    to right,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082,
+    #9400d3
+  );
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 20;
+  }
+}
+
+/* Toolbar buttons */
+.toolbar-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.toolbar-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.toolbar-button:hover::after {
+  opacity: 1;
+  transition: all 0.5s ease;
+}
