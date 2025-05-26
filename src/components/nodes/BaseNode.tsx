@@ -4,7 +4,6 @@ import type { NodeProps } from 'reactflow';
 import { Card, CardContent, Typography, Box, IconButton } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 import useFlowStore from '../../state/flowStore';
-import type { WorkflowNode } from '../../types/flow';
 import type { LayoutDirection } from '../../utils/layoutUtils';
 
 interface BaseNodeProps extends NodeProps {

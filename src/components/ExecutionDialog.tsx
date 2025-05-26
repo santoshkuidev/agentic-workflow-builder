@@ -16,7 +16,6 @@ import {
   Divider,
 } from '@mui/material';
 import useFlowStore from '../state/flowStore';
-import { executeWorkflow } from '../services/openai';
 
 interface ExecutionDialogProps {
   open: boolean;

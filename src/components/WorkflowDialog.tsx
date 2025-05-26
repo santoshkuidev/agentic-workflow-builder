@@ -24,7 +24,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import useFlowStore from '../state/flowStore';
-import type { Workflow } from '../types/flow';
 
 interface TabPanelProps {
   children?: React.ReactNode;

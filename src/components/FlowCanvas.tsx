@@ -1,5 +1,4 @@
 import React, { useCallback, useRef, useState, useMemo } from 'react';
-import AddIcon from '@mui/icons-material/Add';
 import ReactFlow, {
   Background,
   Controls,
@@ -17,7 +16,6 @@ import CodeIcon from '@mui/icons-material/Code';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import ViewStreamIcon from '@mui/icons-material/ViewStream';
 import ViewColumnIcon from '@mui/icons-material/ViewColumn';
-import TemplateIcon from '@mui/icons-material/Dashboard';
 import { autoLayout } from '../utils/layoutUtils';
 import type { LayoutDirection } from '../utils/layoutUtils';
 import { ragnarokColors } from '../theme/ragnarokTheme';
@@ -83,7 +81,7 @@ const FlowCanvas: React.FC<FlowCanvasProps> = ({ onOpenJsonView }) => {
     addNode,
     saveWorkflow,
     setSelectedNode,
-    createDemoWorkflow,
+    
   } = useFlowStore();
 
   // Handle dropping a node onto the canvas

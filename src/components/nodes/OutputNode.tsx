@@ -6,7 +6,6 @@ import SendIcon from '@mui/icons-material/Send';
 import SettingsIcon from '@mui/icons-material/Settings';
 import useFlowStore from '../../state/flowStore';
 import { ragnarokColors } from '../../theme/ragnarokTheme';
-import type { LayoutDirection } from '../../utils/layoutUtils';
 import { 
   outputNodeStyle, 
   nodeHeaderStyle, 

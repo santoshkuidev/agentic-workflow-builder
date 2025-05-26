@@ -6,7 +6,6 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import BoltIcon from '@mui/icons-material/Bolt';
 import useFlowStore from '../../state/flowStore';
 import { ragnarokColors } from '../../theme/ragnarokTheme';
-import type { LayoutDirection } from '../../utils/layoutUtils';
 import { 
   inputNodeStyle, 
   nodeHeaderStyle, 
